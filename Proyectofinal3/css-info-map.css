@@ -1,0 +1,135 @@
+/* CSS exclusivo para la sección de Información y Mapa (Clases Prefijadas y Aisladas) */
+
+/* Contenedor principal de la sección de información y mapa */
+.isolated-info-map-container {
+    font-family: 'Roboto', Arial, sans-serif; /* Puedes ajustar la fuente */
+    display: flex;
+    gap: 30px; /* Espacio entre las dos columnas (información y mapa) */
+    max-width: 1200px; /* Ancho máximo para el contenedor central */
+    width: 100%; /* Ocupa el 100% del ancho disponible hasta max-width */
+    background-color: #fff; /* Fondo blanco para la caja principal */
+    padding: 25px; /* Relleno interno */
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    box-shadow: 0 1px 6px rgba(32,33,36,0.28); /* Sombra suave */
+    margin: 40px auto; /* Margen superior/inferior para separarlo de otros elementos, centrado */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    justify-content: center; /* Centra los elementos cuando se envuelven */
+    color: #3c4043; /* Color de texto general para esta sección */
+    line-height: 1.6; /* Altura de línea para mejorar legibilidad */
+}
+
+/* Sección que contiene los detalles de información (izquierda) */
+.isolated-info-details-section {
+    flex: 1; /* Hace que esta sección sea flexible y ocupe espacio */
+    min-width: 300px; /* Ancho mínimo antes de que el flex-wrap actúe */
+    padding-right: 20px; /* Espacio a la derecha para separar del mapa */
+}
+
+/* Cada elemento individual de información (icono + texto) */
+.isolated-info-detail-item {
+    display: flex; /* Utiliza flexbox para alinear icono y texto */
+    align-items: flex-start; /* Alinea el icono y el texto en la parte superior */
+    margin-bottom: 15px; /* Espacio entre cada elemento */
+    font-size: 15px;
+    line-height: 22px;
+}
+
+/* Estilo del icono dentro de cada elemento de información */
+.isolated-info-detail-item .isolated-detail-icon {
+    width: 24px; /* Tamaño fijo del icono */
+    height: 24px; /* Tamaño fijo del icono */
+    margin-right: 15px; /* Espacio entre el icono y el texto */
+    flex-shrink: 0; /* Evita que el icono se encoja si no hay espacio */
+}
+
+/* Contenedor del texto dentro de cada elemento de información */
+.isolated-info-detail-item .isolated-detail-text-content {
+    flex-grow: 1; /* Permite que el texto crezca y ocupe el espacio restante */
+}
+
+/* Párrafos dentro de los elementos de información */
+.isolated-info-detail-item p {
+    margin: 0; /* Elimina márgenes por defecto para un espaciado consistente */
+}
+
+/* Enlaces dentro de los elementos de información */
+.isolated-info-detail-item a {
+    color: #1a73e8; /* Color azul estándar de enlace de Google */
+    text-decoration: none; /* Sin subrayado por defecto */
+}
+
+.isolated-info-detail-item a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+/* Texto secundario (por ejemplo, "Ubicado en:...") */
+.isolated-info-detail-item .isolated-sub-detail-text {
+    font-size: 13px;
+    color: #70757a; /* Color gris más claro para texto secundario */
+}
+
+/* Estado de cerrado (ej. "Cerrado - Abre a...") */
+.isolated-status-closed {
+    color: #352f2f; /* Color rojo para indicar "cerrado" */
+    font-weight: 500; /* Un poco más de negrita */
+}
+
+/* Sección que contiene el mapa incrustado (derecha) */
+.isolated-map-embed-section {
+    flex: 2; /* Ocupa el doble de espacio que la sección de información */
+    display: flex;
+    justify-content: center; /* Centra el iframe horizontalmente */
+    align-items: center; /* Centra el iframe verticalmente */
+    background-color: #e8eaed; /* Fondo claro para la caja del mapa */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que el iframe y su contenido no desborden los bordes redondeados */
+}
+
+/* Estilo del iframe de Google Maps */
+.isolated-map-embed-section iframe {
+    width: 100%; /* Ocupa todo el ancho de su contenedor */
+    height: 450px; /* Altura fija para el mapa */
+    border-radius: 8px; /* Bordes redondeados también para el iframe */
+    border: 0; /* Elimina el borde predeterminado del iframe */
+}
+
+/* ==================================== */
+/* Media Queries para Responsividad de esta sección */
+/* ==================================== */
+
+@media (max-width: 900px) {
+    .isolated-info-map-container {
+        flex-direction: column; /* Apila las secciones verticalmente en pantallas medianas */
+        align-items: center; /* Centra los elementos apilados */
+        padding: 20px; /* Ajusta el padding */
+        gap: 20px; /* Reduce el espacio entre las secciones apiladas */
+    }
+    .isolated-info-details-section, .isolated-map-embed-section {
+        flex: none; /* Deshabilita el crecimiento flexible */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        padding-right: 0; /* Elimina el padding a la derecha */
+        max-width: 500px; /* Limita el ancho máximo incluso en modo columna para mejor lectura */
+    }
+    .isolated-map-embed-section iframe {
+        height: 350px; /* Ajusta la altura del mapa para pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 500px) {
+    .isolated-info-map-container {
+        padding: 15px; /* Reduce el padding general en pantallas muy pequeñas */
+        margin: 20px auto; /* Ajusta el margen */
+    }
+    .isolated-info-detail-item {
+        font-size: 14px; /* Tamaño de fuente más pequeño */
+        margin-bottom: 10px; /* Menos espacio entre ítems */
+    }
+    .isolated-info-detail-item .isolated-detail-icon {
+        width: 20px; /* Iconos un poco más pequeños */
+        height: 20px;
+        margin-right: 10px;
+    }
+    .isolated-map-embed-section iframe {
+        height: 250px; /* Altura del mapa para móviles muy pequeños */
+    }
+}

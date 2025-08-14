@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesta de Compra - Tu Tienda Online</title>
+    <link rel="stylesheet" href="style.css"> <style>
+        /* Estilos generales para la página de la cesta (puedes mover esto a style.css) */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif; /* Fuente minimalista */
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Estilos del encabezado (similar al de Zara) */
+        .header-cart {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px; /* Ajusta el padding para que coincida con tus otras páginas */
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .header-cart .menu-icon {
+            font-size: 2em;
+            cursor: pointer;
+        }
+
+        .header-cart .logo-text {
+            font-family: 'Montserrat', sans-serif; /* O la fuente que uses para tu logo */
+            font-size: 2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #000;
+            position: absolute; /* Para centrar el logo */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .header-cart .right-nav {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .header-cart .right-nav span {
+            cursor: pointer;
+        }
+
+        /* Contenido principal de la cesta */
+        .cart-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+            gap: 60px; /* Espacio entre la sección de productos y el resumen */
+        }
+
+        .cart-items {
+            flex: 2; /* Ocupa más espacio */
+        }
+
+        .cart-summary {
+            flex: 1; /* Ocupa menos espacio */
+            min-width: 280px; /* Para asegurar que el resumen no se achique demasiado */
+        }
+
+        h1 {
+            font-size: 1.2em;
+            font-weight: normal;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none; /* No hay borde en el último artículo */
+        }
+
+        .item-image {
+            width: 120px; /* Tamaño de la imagen del producto */
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .item-details {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .item-details p {
+            margin: 5px 0;
+            font-size: 0.95em;
+        }
+
+        .item-details .item-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .item-details .item-price {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .item-quantity button {
+            background: none;
+            border: 1px solid #ccc;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            line-height: 1; /* Para centrar el texto */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0 5px;
+        }
+
+        .item-quantity span {
+            font-size: 1em;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .cart-meta {
+            margin-top: 20px;
+            font-size: 0.9em;
+            text-align: left;
+        }
+        .cart-meta span {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .cart-meta a {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        /* Resumen de la cesta */
+        .summary-total {
+            text-align: right;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .summary-total .total-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .summary-total .total-price {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .summary-info {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .continue-button {
+            width: 100%;
+            padding: 18px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .continue-button:hover {
+            background-color: #333;
+        }
+
+        .terms-conditions {
+            font-size: 0.75em;
+            color: #666;
+            text-align: center;
+            margin-top: 40px;
+            padding: 0 40px; /* Para que no se pegue a los bordes */
+        }
+
+        .terms-conditions a {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        /* Icono de accesibilidad flotante (simulado) */
+        .accessibility-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-cart">
+        <span class="menu-icon">&#9776;</span> <div class="logo-text">ZORA</div>
+        <div class="right-nav">
+            <span>BUSCAR</span>
+            <span>AYUDA</span>
+            <span>CESTA (1)</span> </div>
+    </header>
+
+    <div class="cart-container">
+        <div class="cart-items">
+            <h1>CESTA (1)</h1> <p style="font-size: 0.9em; margin-bottom: 40px;">FAVORITOS (0)</p>
+
+            <div class="cart-item">
+                <img src="https://static.zara.net/photos///2024/V/0/1/p/6917/304/400/2/w/850/6917304400_1_1_1.jpg?ts=1719500000000" alt="Cazadora Denim Básica" class="item-image">
+                <div class="item-details">
+                    <p class="item-name">CAZADORA DENIM BÁSICA</p>
+                    <p>Q 429.00</p>
+                    <p>TALLA: XL | AZUL CLARO</p>
+                    <div class="item-quantity">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+        <div class="cart-summary">
+            <div class="summary-total">
+                <span class="total-label">TOTAL</span>
+                <span class="total-price">Q 429.00</span>
+            </div>
+            <div class="summary-info">
+                <span>*IVA incluido</span>
+            </div>
+
+            <button class="continue-button">CONTINUAR</button>
+        </div>
+    </div>
+
+    <p class="terms-conditions">
+        Al continuar, declaro que he leído y acepto las <a href="#">Condiciones de Compra</a> y entiendo la <a href="#">Política de Privacidad y Cookies</a> de Zara.
+    </p>
+
+    <div class="accessibility-icon">&#9855;</div> </body>
+</html>

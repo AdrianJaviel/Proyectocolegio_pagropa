@@ -1,0 +1,546 @@
+/* --- NUEVA REGLA: Ocultar secciones por defecto --- */
+body {
+    font-family: 'Ferrari Sans', Georgia, 'Times New Roman', Times, serif, sans-serif; /* Asumiendo una fuente similar o Arial */
+}
+.page-section {
+    display: none; /* Oculta todas las secciones por defecto */
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Para una transición suave al mostrar */
+}
+
+.page-section.active-section {
+    display: block; /* Muestra solo la sección activa */
+    opacity: 1;
+}
+
+/* También asegúrate de que tienes estilos para .product-grid .cols-X */
+.product-grid {
+    display: grid;
+    gap: 20px; /* O el espacio que desees */
+    transition: all 0.3s ease;
+}
+
+.product-grid.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.product-grid.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.product-grid.cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+/* Estilo para ocultar productos filtrados */
+.product-item.hidden {
+    display: none;
+}
+
+/* Estilos para el menú overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo semitransparente */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.close-menu-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.overlay-nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.overlay-nav li a {
+    font-size: 2em;
+    padding: 15px 0;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.overlay-nav li a:hover {
+    color: #000;
+}
+
+/* Estilos para modales */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Product Detail Modal specific styles */
+.product-detail-modal .modal-content {
+    max-width: 1000px; /* Aumenta el ancho para el detalle del producto */
+    width: 90%;
+}
+
+.product-detail-layout {
+    display: flex;
+    gap: 30px;
+}
+
+.product-detail-image-gallery {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-detail-image-gallery img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.product-detail-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-product-price {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.detail-color-options {
+    margin-bottom: 20px;
+}
+
+.color-swatches {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.color-swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.color-swatch:hover {
+    border-color: #000;
+    transform: scale(1.1);
+}
+
+.color-swatch.selected-swatch {
+    border: 2px solid #000; /* Borde más grueso para el seleccionado */
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000; /* Efecto de selección */
+}
+
+
+.add-to-cart-button {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    text-transform: uppercase;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+    background-color: #333;
+}
+
+/* Accordion styles */
+.product-details-accordion {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #eee;
+}
+
+.accordion-header {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 15px 0;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-icon {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(45deg); /* Gira el "+" a una "X" o similar */
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out; /* Animación para abrir/cerrar */
+    padding-bottom: 0; /* Asegúrate de que no haya padding si está cerrado */
+}
+
+.accordion-content.active {
+    padding-bottom: 15px; /* Agrega padding cuando está abierto */
+}
+
+.accordion-content p {
+    padding: 5px 0;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Estilos para el body cuando el modal está activo */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Otros estilos generales */
+body {
+    font-family: 'Neue Montreal', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-right: 20px;
+}
+
+.menu-button .line {
+    width: 25px;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+.logo-link .header-logo {
+    height: 30px; /* Ajusta el tamaño del logo si es necesario */
+}
+
+.search-container {
+    margin-right: 20px;
+}
+
+.search-input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+    font-size: 0.9em;
+    outline: none;
+}
+
+.user-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.user-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.main-content {
+    padding: 20px 30px;
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee; /* Línea separadora */
+}
+
+.page-title {
+    font-size: 2.5em;
+    margin: 0;
+    font-weight: 500;
+}
+
+.section-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.icon-button img {
+    width: 24px; /* Tamaño de los iconos de filtrar/info */
+    height: 24px;
+}
+
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    padding-top: 10px; /* Añadido para espacio superior */
+}
+
+.category-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.category-nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    position: relative;
+    padding-bottom: 5px; /* Espacio para la línea activa */
+}
+
+.category-nav a.active {
+    color: #000;
+}
+
+.category-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+.view-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.view-options span {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.view-options .layout-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8em;
+    min-width: 30px; /* Para que tengan un tamaño mínimo */
+}
+
+.view-options .layout-button.active {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+
+.product-item {
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product-info {
+    padding: 5px 0;
+}
+
+.product-name {
+    font-size: 0.9em;
+    margin: 0;
+    color: #333;
+    font-weight: 500;
+}
+
+.product-price {
+    font-size: 0.8em;
+    margin: 5px 0 0;
+    color: #666;
+}
+
+/* Media Queries para responsividad (mantener si las tenías) */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 10px 15px;
+    }
+
+    .header-right {
+        display: none; /* Oculta la búsqueda y navegación de usuario en móviles */
+    }
+
+    .menu-button {
+        margin-right: 10px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .page-title {
+        font-size: 1.8em;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .category-nav ul {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .view-options {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .product-grid.cols-3,
+    .product-grid.cols-4,
+    .product-grid.cols-5 {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+    }
+
+    .product-detail-layout {
+        flex-direction: column;
+    }
+
+    .product-detail-modal .modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid.cols-3,
+    .product-grid.cols-4,
+    .product-grid.cols-5 {
+        grid-template-columns: 1fr; /* 1 columna en teléfonos pequeños */
+    }
+}

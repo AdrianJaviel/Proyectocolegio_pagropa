@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zora</title>
+    <link rel="stylesheet" href="estiloindex.css" />
+    <link rel="stylesheet" href="css-info-map.css" />
+    
+</head>
+<body>
+
+    <section class="carousel-section-top">
+        <div class="carousel-ferrari">
+            <div class="slides" id="slideContainer">
+                <img src="imgc1.png" class="slide" alt="Imagen 1">
+                <img src="imgc2.png" class="slide" alt="Imagen 2">
+                <img src="imgc3.png" class="slide" alt="Imagen 3">
+                <img src="imgc4.png" class="slide" alt="Imagen 4">
+                <img src="imgc5.png" class="slide" alt="Imagen 5">
+                <img src="imc6.png" class="slide" alt="Imagen 6">
+                <img src="imgc7.png" class="slide" alt="Imagen 7">
+                <img src="imgc8.png" class="slide" alt="Imagen 8">
+                <img src="imgc9.png" class="slide" alt="Imagen 9">
+                <img src="imgc10.png" class="slide" alt="Imagen 10">
+            </div>
+            <button class="prev" onclick="prevSlide()">❮</button>
+            <button class="next" onclick="nextSlide()">❯</button>
+            <div class="dots-container">
+                <span class="dot" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
+                <span class="dot" onclick="goToSlide(4)"></span>
+                <span class="dot" onclick="goToSlide(5)"></span>
+                <span class="dot" onclick="goToSlide(6)"></span>
+                <span class="dot" onclick="goToSlide(7)"></span>
+                <span class="dot" onclick="goToSlide(8)"></span>
+                <span class="dot" onclick="goToSlide(9)"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section-reorganized">
+        <div class="text-content-ferrari">
+            <h1 class="zoratext">Z  O  R  A</h1>
+            <hr>
+                                <p class="zoratext">Con tu tienda Zora construye el arte de la creatividad, demuestra tu estilo personal y muestra tu  autenticidad</p>
+                    <a href="about.html" class="read-more-button">LEER MÁS ❯</a>
+        </div>
+        <img src="imginfo.png" alt="Imagen Informativa de Ferrari" class="info-image-reorganized">
+    </section>
+
+
+    <section class="cards-section-ferrari">
+        <div class="cards-wrapper">
+            <div class="card">
+                <a href="RM.html"></a>
+                <img src="imghdex.png" alt="Redirección Hombre">
+                <div class="card-text">Hombre</div>
+            </div>
+
+            <div class="card">
+                <a href="RM.html"></a>
+                <img src="imgmdex.png" alt="Redirección Mujer">
+                <div class="card-text">Mujer</div>
+            </div>
+        </div>
+
+        <hr>
+        <h1 class="zoratext">¿Donde estamos ubicados?</h1>
+
+               <section class="isolated-info-map-container">
+    <div class="isolated-info-details-section">
+        <div class="isolated-info-detail-item">
+            <img src="location.png" alt="Ubicación" class="isolated-detail-icon">
+            <div class="isolated-detail-text-content">
+                <p>Centro Comercial Miraflores, 21 avenida 4-32, Cdad. de Guatemala 01011</p>
+                <p class="isolated-sub-detail-text">Ubicado en: Centro Comercial Miraflores</p>
+            </div>
+        </div>
+
+        <div class="isolated-info-detail-item">
+            <img src="clock.png" alt="Horario" class="isolated-detail-icon">
+            <div class="isolated-detail-text-content">
+                <p class="isolated-status-closed">
+                    <li>Martes 10 a.m.–8 p.m.</li>
+                    <li>Miercoles 10 a.m.–8 p.m.</li>
+                    <li>Jueves 10 a.m.–8 p.m.</li>
+                    <li>Viernes 10 a.m.–9 p.m.</li>
+                    <li>Sabado 10 a.m.–9 p.m.</li>
+                    <li>Lunes 10 a.m.–8 p.m.</li>
+                </p>
+            </div>
+        </div>
+
+        <div class="isolated-info-detail-item">
+            <img src="website.png" alt="Sitio Web" class="isolated-detail-icon">
+            <div class="isolated-detail-text-content">
+                <a href="https://zora.adrian.gua.gt" target="_blank">https://zora.adrian.gua.gt</a>
+            </div>
+        </div>
+
+        <div class="isolated-info-detail-item">
+            <img src="phone.png" alt="Teléfono" class="isolated-detail-icon">
+            <div class="isolated-detail-text-content">
+                <p>2315 4217</p>
+            </div>
+        </div>
+
+        <div class="isolated-info-detail-item">
+            <img src="dots.png" alt="Código Plus" class="isolated-detail-icon">
+            <div class="isolated-detail-text-content">
+                <p>JCCW+JP Cdad. de Guatemala</p>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="isolated-map-embed-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.605709131082!2d-90.55581028773668!3d14.62152317650198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a1a53e9ab145%3A0x143ba4c8decdf7a4!2sZara%20%E2%80%A2%20Miraflores!5e0!3m2!1ses-419!2sgt!4v1753846859032!5m2!1ses-419!2sgt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+    <script src="index.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

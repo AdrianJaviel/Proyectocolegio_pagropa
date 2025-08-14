@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre el Proyecto - Tu Tienda Online</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para la página "Sobre el Proyecto" (puedes mover esto a style.css) */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6; /* Mejor legibilidad para el texto */
+            font-family: 'Ferrari Sans', Georgia, 'Times New Roman', Times, serif, sans-serif; /* Asumiendo una fuente similar o Arial */
+        }
+
+        .menu-icon{
+             text-decoration: none; /* quita la línea de abajo */
+    color: black;          /* asegúrate de que el color sea el que deseas */
+    font-size: 18px;
+        }
+        /* --- ESTILOS DEL ENCABEZADO (igual que en cart.html y login.html) --- */
+        .header-about {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .logo-text{
+            position: abdosolute;
+            margin-top: -25px; /* Ajusta la posición vertical del texto */
+            cursor: pointer;
+            font-family: 'Ferrari Sans', Georgia, 'Times New Roman', Times, serif, sans-serif; /* Asumiendo una fuente similar o Arial */
+        }
+
+        .header-about .menu-icon {
+            font-size: 2em;
+            cursor: pointer;
+        }
+
+        .header-about .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #000;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .header-about .right-nav {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .header-about .right-nav span {
+            cursor: pointer;
+        }
+        /* --- FIN ESTILOS DEL ENCABEZADO --- */
+
+
+        /* Contenido principal de la página "Sobre el Proyecto" */
+        .about-container {
+            max-width: 900px; /* Ancho máximo para el contenido de texto */
+            margin: 60px auto; /* Centrar y dar espacio arriba/abajo */
+            padding: 0 40px; /* Padding lateral */
+            text-align: left; /* Alineación del texto */
+        }
+
+        .about-container h1 {
+            font-size: 2.2em; /* Título principal grande pero sutil */
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 40px;
+            color: #000;
+            text-align: center; /* Centrar el título */
+        }
+
+        .about-section {
+            margin-bottom: 60px; /* Espacio entre secciones */
+        }
+
+        .about-section h2 {
+            font-size: 1.5em;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            color: #000;
+            border-bottom: 1px solid #eee; /* Línea separadora sutil */
+            padding-bottom: 10px;
+        }
+
+        .about-section p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            color: #555; /* Color de texto un poco más suave */
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            max-height: 400px; /* Limita la altura de las imágenes */
+            object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+            margin-bottom: 30px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Una columna por defecto */
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas más grandes */
+            }
+        }
+        
+        .about-grid-item {
+            text-align: center;
+        }
+
+        .about-grid-item img {
+            width: 100%;
+            height: 250px; /* Altura fija para las imágenes de la cuadrícula */
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .about-grid-item h3 {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .about-grid-item p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* --- ESTILOS DEL PIE DE PÁGINA (puedes añadir uno general en style.css) --- */
+        footer {
+            background-color: #f8f8f8;
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            margin-top: 60px;
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        footer a {
+            color: #000;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* --- FIN ESTILOS DEL PIE DE PÁGINA --- */
+
+        /* Icono de accesibilidad flotante (simulado, si lo usas) */
+        .accessibility-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header-about">
+        <a class="menu-icon" href="index.html">&#8592;</a> 
+        <a href="index.html"><div class="logo-text">ZORA</div></a>
+    </header>
+
+    <div class="about-container">
+        <h1>SOBRE NUESTRO PROYECTO</h1>
+
+        <div class="about-section">
+            <h2>&#9729; NUESTRA FILOSOFÍA</h2>
+            <p>
+                En Zora, nos dedicamos a ofrecer productos que combinan diseño minimalista, calidad excepcional y un compromiso con la sostenibilidad. Creemos que la elegancia reside en la simplicidad y en la atención meticulosa a cada detalle. Nuestra misión es crear piezas atemporales que trasciendan las tendencias, aportando valor y estilo a la vida de nuestros clientes.
+            </p>
+            <p>
+                Desde la selección de materiales hasta el proceso de fabricación, cada paso se realiza con una conciencia plena de nuestro impacto en el mundo. Nos esforzamos por innovar y mejorar continuamente, buscando siempre soluciones que beneficien tanto a nuestros usuarios como al planeta.
+            </p>
+            <img src="about.png" alt="Filosofía del proyecto" class="about-image">
+        </div>
+
+        <div class="about-section">
+            <h2>NUESTRO EQUIPO</h2>
+            <p>
+                Detrás de cada pieza y cada experiencia, hay un equipo apasionado de diseñadores, artesanos y visionarios. Compartimos una visión común: la creación de un espacio donde la calidad y la estética se encuentran en perfecta armonía.
+            </p>
+            <div class="about-grid">
+                <div class="about-grid-item">
+                    <h3>🖌️Juan Serra</h3>
+                    <p>Fundador y Diseñador Principal</p>
+                </div>
+                
+                <div class="about-grid-item">
+                    <h3>💼Adrian Javiel</h3>
+                    <p>Jefe de Operaciones</p>
+                </div>
+
+                <div class="about-grid-item">
+                    <h3>⚙️Diego Pereira</h3>
+                    <p>Funciones de la pagina</p>
+                </div>
+
+                <div class="about-grid-item">
+                    <h3>🧥Sebastian Roldan</h3>
+                    <p>Creador pagina de toda la ropa</p>
+                </div>
+
+                <div class="about-grid-item" id="centerdivmar">
+                    <h3>📱Marcelo Berreondo</h3>
+                    <p>Creador pagina principal</p>
+                </div>
+        </div>
+
+        <div class="about-section">
+            <h2>NUESTRO COMPROMISO</h2>
+            <p>
+                Nos comprometemos a la transparencia en nuestros procesos y a la excelencia en el servicio al cliente. Tu satisfacción es nuestra prioridad, y nos enorgullece construir relaciones duraderas basadas en la confianza y el respeto mutuo. Estamos siempre abiertos a escuchar y a crecer junto a nuestra comunidad.
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tu Tienda Online. Todos los derechos reservados.</p>
+        <div>
+            <a href="#">Política de Privacidad</a> | 
+            <a href="#">Términos de Servicio</a> | 
+            <a href="#">Contacto</a>
+        </div>
+    </footer>
+
+    <div class="accessibility-icon">&#9855;</div>
+
+</body>
+</html>

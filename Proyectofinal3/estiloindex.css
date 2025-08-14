@@ -1,0 +1,360 @@
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Ferrari Sans', Georgia, 'Times New Roman', Times, serif, sans-serif; /* Asumiendo una fuente similar o Arial */
+}
+
+body {
+    background-color: #f0f0f0; /* Fondo gris claro similar al de Ferrari */
+    color: #555657;
+    line-height: 1.6; /* Mejora la legibilidad del texto */
+    font-family: 'Ferrari Sans', Georgia, 'Times New Roman', Times, serif, sans-serif; /* Asumiendo una fuente similar o Arial */
+}
+
+/* Sección del carrusel principal (ahora arriba del todo) */
+.carousel-section-top {
+    width: 100%;
+    /* No hay padding aquí para que el carrusel ocupe todo el ancho */
+}
+
+.carousel-ferrari {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 600px; /* Altura fija para el carrusel en pantallas grandes */
+    background-color: #000; /* Fondo negro para el carrusel */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    display: block;
+}
+
+/* Botones de control (flechas) */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.5em 0.8em;
+    z-index: 2;
+    border-radius: 4px;
+    opacity: 0.8; /* Ligeramente transparente */
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    opacity: 1;
+}
+
+/* Indicadores de página (puntos) */
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active, .dot:hover {
+    background-color: #fff;
+}
+
+
+/* Sección del texto y la imagen debajo del carrusel */
+.info-section-reorganized {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+    max-width: 1200px; /* Ancho máximo para el contenido */
+    margin: 60px auto; /* Centrar la sección con margen arriba y abajo */
+    padding: 0 40px; /* Padding horizontal interno */
+    gap: 40px; /* Espacio entre el texto y la imagen */
+}
+
+.text-content-ferrari {
+    flex: 1; /* Permite que el texto ocupe espacio flexible */
+    min-width: 300px; /* Ancho mínimo para el texto antes de envolver */
+    max-width: 600px; /* Ancho máximo para el texto */
+}
+
+.text-content-ferrari h1 {
+    font-size: 2.8em;
+    color: #000000;
+    margin-bottom: 0.5em;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.text-content-ferrari p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 1.5em;
+}
+
+.read-more-button {
+    display: inline-block;
+    background: none;
+    border: 1px solid #ccc;
+    color: #555;
+    padding: 10px 20px;
+    font-size: 0.9em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.read-more-button:hover {
+    border-color: #cc0000;
+    color: #cc0000;
+}
+
+.info-image-reorganized {
+    flex: 1; /* Permite que la imagen ocupe espacio flexible */
+    min-width: 300px; /* Ancho mínimo para la imagen antes de envolver */
+    max-width: 500px; /* Ancho máximo para la imagen */
+    height: 400px; /* Altura fija para la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área */
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Sección de noticias/tarjetas */
+.cards-section-ferrari {
+    max-width: 1200px; /* Ancho máximo para centrar */
+    margin: 60px auto; /* Centrar y añadir espacio */
+    padding: 0 40px; /* Padding horizontal */
+    text-align: center; /* Centrar el enlace "VER TODAS LAS NOTICIAS" (aunque ya no esté el enlace) */
+}
+
+/* Se ha eliminado la regla CSS para .all-news-link */
+
+.cards-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Esencial para la responsividad, permite envolver las tarjetas */
+    gap: 30px; /* Espacio entre las tarjetas */
+    justify-content: center; /* Centrar las tarjetas si no ocupan todo el ancho */
+}
+
+.card {
+    position: relative;
+    /* Ajustes para que las tarjetas sean flexibles y se vean completas */
+    flex: 1 1 calc(50% - 15px); /* Dos columnas en pantallas grandes, con gap. */
+    max-width: 585px; /* Limita el ancho máximo para una tarjeta individual (aprox. 1200/2 - 30/2) */
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 550px; /* ¡Altura aumentada para alargar las fotos de Hombre/Mujer! */
+    object-fit: cover; /* **CRUCIAL**: Asegura que la imagen cubra el área y no se recorte mal */
+    display: block;
+    filter: brightness(85%);
+    transition: filter 0.4s, transform 0.4s;
+}
+
+.card:hover img {
+    filter: brightness(100%);
+    transform: scale(1.03);
+}
+
+.card-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #ffffff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    padding: 1em;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.card a {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+/* ==================================== */
+/* Media Queries para Responsividad         */
+/* ==================================== */
+
+/* Tabletas y pantallas más pequeñas (menos de 1024px) */
+@media (max-width: 1024px) {
+    .carousel-ferrari {
+        height: 500px; /* Ajusta la altura del carrusel para tabletas */
+    }
+
+    .info-section-reorganized {
+        flex-direction: column; /* Apila el texto y la imagen verticalmente */
+        align-items: center; /* Centra los elementos apilados */
+        padding: 40px 20px; /* Ajusta el padding */
+        margin: 40px auto;
+    }
+
+    .text-content-ferrari {
+        text-align: center; /* Centra el texto */
+        min-width: unset; /* Elimina el min-width */
+        margin-bottom: 30px; /* Espacio entre el texto y la imagen */
+        max-width: 100%; /* Permite que el texto ocupe todo el ancho disponible */
+    }
+
+    .info-image-reorganized {
+        min-width: unset; /* Elimina el min-width */
+        width: 100%; /* La imagen ocupa todo el ancho */
+        height: 350px; /* Ajusta la altura de la imagen informativa */
+        max-width: 500px; /* Limita el ancho máximo incluso si es 100% */
+    }
+
+    .text-content-ferrari h1 {
+        font-size: 2.2em;
+    }
+
+    .cards-section-ferrari {
+        padding: 0 20px;
+    }
+
+    .card {
+        flex: 1 1 calc(50% - 15px); /* Mantiene dos columnas, pero con más flexibilidad */
+        max-width: 100%; /* Permite que se estiren un poco más en pantallas intermedias */
+    }
+    .card img {
+        height: 450px; /* Altura ajustada para las tarjetas en tabletas */
+    }
+}
+
+/* Teléfonos móviles y pantallas muy pequeñas (menos de 768px) */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px; /* Ajusta el tamaño base de la fuente */
+    }
+
+    .carousel-ferrari {
+        height: 400px; /* Altura del carrusel para móviles */
+    }
+
+    .prev, .next {
+        font-size: 1.5rem;
+        padding: 0.3em 0.6em;
+    }
+    .dots-container {
+        bottom: 10px; /* Acercar los puntos al borde inferior */
+        gap: 8px;
+    }
+    .dot {
+        height: 8px;
+        width: 8px;
+    }
+
+    .info-section-reorganized {
+        padding: 30px 15px; /* Más padding para móviles */
+        margin: 30px auto;
+        gap: 25px;
+    }
+    .text-content-ferrari h1 {
+        font-size: 1.8em;
+    }
+    .text-content-ferrari p {
+        font-size: 0.95em;
+    }
+    .read-more-button {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+    .info-image-reorganized {
+        height: 280px; /* Altura más pequeña para la imagen informativa */
+    }
+
+    .cards-section-ferrari {
+        padding: 0 15px;
+        margin: 30px auto;
+    }
+
+    .cards-wrapper {
+        flex-direction: column; /* Las tarjetas se apilan verticalmente */
+        align-items: center; /* Centra las tarjetas apiladas */
+        gap: 25px;
+    }
+
+    .card {
+        width: 100%; /* Ocupa todo el ancho disponible en móviles */
+        max-width: 400px; /* Limita el ancho máximo incluso en columnas */
+    }
+
+    .card img {
+        height: 350px; /* Altura de la imagen de la tarjeta para móviles */
+    }
+
+    .card-text {
+        font-size: 1.1em;
+        padding: 0.8em;
+    }
+}
+
+/* Teléfonos móviles pequeños (menos de 480px) */
+@media (max-width: 480px) {
+    .carousel-ferrari {
+        height: 300px;
+    }
+    .text-content-ferrari h1 {
+        font-size: 1.5em;
+    }
+    .info-image-reorganized {
+        height: 200px;
+    }
+    .card img {
+        height: 250px; /* Altura de la imagen de la tarjeta para móviles pequeños */
+    }
+    .card-text {
+        font-size: 1em;
+        padding: 0.6em;
+    }
+}
+
+/* CSS exclusivo para la sección de Información y Mapa (Clases Prefijadas y Aisladas) */

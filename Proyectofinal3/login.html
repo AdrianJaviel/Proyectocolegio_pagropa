@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Tu Tienda Online</title>
+    <link rel="stylesheet" href="style.css"> <style>
+    
+        /* Estilos específicos para la página de login (puedes mover esto a style.css) */
+        body {
+            /* Fuente sans-serif genérica para un look limpio */
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Logo de texto, simulando el estilo de Zara */
+        .logo-text {
+            /* Una fuente sans-serif elegante, si no tienes la de Zara, 'Montserrat' o 'Open Sans' son buenas alternativas */
+            font-family: 'Montserrat', sans-serif; /* Puedes importar Google Fonts si quieres algo específico */
+            font-size: 3em; /* Tamaño grande para el logo */
+            font-weight: bold;
+            letter-spacing: 2px; /* Espaciado entre letras */
+            color: #000;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 1.8em; /* Un poco más pequeño y sutil */
+            font-weight: normal; /* Para que el texto "INICIAR SESIÓN" no sea demasiado grueso */
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px; /* Espaciado sutil */
+            color: #000; /* Negro puro para un contraste fuerte */
+        }
+
+        .form-group {
+            margin-bottom: 25px; /* Más espacio entre los campos */
+            text-align: left;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 12px 0; /* Más padding vertical, 0 horizontal */
+            border: none;
+            border-bottom: 1px solid #ccc;
+            font-size: 1em; /* Tamaño de fuente estándar para legibilidad */
+            outline: none;
+            background-color: transparent;
+            font-family: 'Helvetica Neue', Arial, sans-serif; /* Misma fuente que el cuerpo */
+            color: #333; /* Color de texto del input */
+        }
+
+        .form-group input::placeholder {
+            color: #aaa; /* Color más claro para el placeholder */
+            font-weight: normal;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="password"]:focus {
+            border-bottom-color: #000;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 18px; /* Más padding para que el botón sea más prominente */
+            background-color: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 35px; /* Más espacio superior */
+            transition: background-color 0.3s ease;
+            font-family: 'Helvetica Neue', Arial, sans-serif; /* Misma fuente para el botón */
+        }
+
+        .login-button:hover {
+            background-color: #333;
+        }
+
+        .forgot-password {
+            margin-top: 25px; /* Más espacio */
+            font-size: 0.9em;
+        }
+
+        .forgot-password a {
+            color: #666;
+            text-decoration: none;
+            font-weight: normal; /* No tan bold */
+            letter-spacing: 0.5px;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .separator {
+            margin: 40px 0; /* Más espacio */
+            position: relative;
+            text-align: center;
+        }
+
+        .separator::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #eee;
+            z-index: 1;
+        }
+
+        .separator span {
+            background-color: #fff;
+            padding: 0 15px; /* Más padding horizontal */
+            position: relative;
+            z-index: 2;
+            color: #999; /* Un gris más claro para el "O" */
+            font-size: 0.9em;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        .register-button {
+            width: 100%;
+            padding: 18px; /* Mismo padding que el botón de login */
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #000;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 25px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .register-button:hover {
+            background-color: #f5f5f5; /* Gris muy suave al pasar el ratón */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="logo-text">ZORA</div>
+
+        <h1>INICIAR SESIÓN</h1>
+
+        <form action="#" method="POST">
+            <div class="form-group">
+                <input type="text" id="email" name="email" placeholder="E-MAIL" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="CONTRASEÑA" required>
+            </div>
+            
+            <button type="submit" class="login-button">INICIAR SESIÓN</button>
+        </form>
+
+        <p class="forgot-password">
+            <a href="#">¿HAS OLVIDADO TU CONTRASEÑA?</a>
+        </p>
+
+        <div class="separator">
+            <span>O</span>
+        </div>
+
+        <button type="button" class="register-button">REGISTRARSE</button>
+
+    </div>
+
+</body>
+</html>
